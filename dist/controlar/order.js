@@ -9,7 +9,7 @@ const stripe_1 = __importDefault(require("stripe"));
 const inspector_1 = require("inspector");
 const order_1 = __importDefault(require("../models/order"));
 const STRIPE = new stripe_1.default(process.env.STRIPE_API_KEYS);
-const FRONTEND_URL = process.env.FRONTEND_URL;
+const FRONTEND_URL = "https://kaleidoscopic-granita-513e6f.netlify.app";
 const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 console.log("api", process.env.STRIPE_API_KEYS);
 const createCheckoutSession = async (req, res) => {
