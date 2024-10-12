@@ -7,7 +7,7 @@ import Order from "../models/order";
 
 
 const STRIPE = new Stripe(process.env.STRIPE_API_KEYS as string)
-const FRONTEND_URL = process.env.FRONTEND_URL as string
+const FRONTEND_URL = "https://kaleidoscopic-granita-513e6f.netlify.app"
 const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_WEBHOOK_SECRET as string
 
 console.log("api", process.env.STRIPE_API_KEYS)
