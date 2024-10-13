@@ -8,10 +8,10 @@ const restaurant_1 = __importDefault(require("../models/restaurant"));
 const stripe_1 = __importDefault(require("stripe"));
 const inspector_1 = require("inspector");
 const order_1 = __importDefault(require("../models/order"));
-const STRIPE = new stripe_1.default(process.env.STRIPE_API_KEYS);
+const STRIPE = new stripe_1.default("sk_test_51Q4F1nCYG44laBPCPSBDpsLgmKJ0bqyJdIKFHACd72c1tNLEGFQrOIUcuYD4WcohpmnPZuEC74vY3UKPx6Ftn4Au008JOnfLby");
 const FRONTEND_URL = "https://kaleidoscopic-granita-513e6f.netlify.app";
-const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-console.log("api", process.env.STRIPE_API_KEYS);
+const STRIPE_ENDPOINT_SECRET = "whsec_e2edf41e82471a9d4b323fa037ec9c7a1da0637fb306f358503a643e36c20cba";
+console.log("api", STRIPE);
 const createCheckoutSession = async (req, res) => {
     try {
         const checkoutSessionRequest = req.body;
@@ -36,7 +36,7 @@ const createCheckoutSession = async (req, res) => {
             return res.status(500).json({ message: "Error found in Stripe" });
         }
         await newOrder.save();
-        if (!process.env.STRIPE_API_KEYS || !process.env.FRONTEND_URL) {
+        if (!STRIPE || !FRONTEND_URL) {
             throw new Error("Environment variables STRIPE_API_KEYS or FRONTEND_URL are not set");
         }
         res.json({ url: session.url });

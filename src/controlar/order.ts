@@ -6,11 +6,11 @@ import Order from "../models/order";
 
 
 
-const STRIPE = new Stripe(process.env.STRIPE_API_KEYS as string)
+const STRIPE = new Stripe("sk_test_51Q4F1nCYG44laBPCPSBDpsLgmKJ0bqyJdIKFHACd72c1tNLEGFQrOIUcuYD4WcohpmnPZuEC74vY3UKPx6Ftn4Au008JOnfLby")
 const FRONTEND_URL = "https://kaleidoscopic-granita-513e6f.netlify.app"
-const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_WEBHOOK_SECRET as string
+const STRIPE_ENDPOINT_SECRET = "whsec_e2edf41e82471a9d4b323fa037ec9c7a1da0637fb306f358503a643e36c20cba"
 
-console.log("api", process.env.STRIPE_API_KEYS)
+console.log("api", STRIPE)
 
 type CheckoutSessionRequest = {
     cartItems: {
@@ -83,7 +83,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
         await newOrder.save()
 
 
-        if (!process.env.STRIPE_API_KEYS || !process.env.FRONTEND_URL) {
+        if (!STRIPE || !FRONTEND_URL) {
             throw new Error("Environment variables STRIPE_API_KEYS or FRONTEND_URL are not set");
         }
 
