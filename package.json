@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"nodemon ./dist/index.js\" \"npm run stripe\" ",
     "build": "npm install",
-    "stripe": "stripe listen --forward-to localhost:1000/api/order/checkout/webhook",
+    "stripe": "stripe listen --forward-to https://bussines-om65.onrender.com/api/order/checkout/webhook",
     "start": "node ./dist/index.js"
   },
   "author": "",
