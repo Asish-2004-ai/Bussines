@@ -35,7 +35,7 @@ const _dirname = path_1.resolve();
 
 
 app.use((0, cors_1.default)());
-app.use("/api/order/checkout/webhook", express.default.raw({ type: "*/*" }));
+app.use("https://bussines-om65.onrender.com/api/order/checkout/webhook", express.default.raw({ type: "*/*" }));
 app.use(express.default.json());
 
 app.use('/api/user', user_1.default);
