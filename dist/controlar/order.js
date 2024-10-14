@@ -9,7 +9,7 @@ const stripe_1 = __importDefault(require("stripe"));
 const inspector_1 = require("inspector");
 const order_1 = __importDefault(require("../models/order"));
 const STRIPE = new stripe_1.default("sk_test_51Q4F1nCYG44laBPCPSBDpsLgmKJ0bqyJdIKFHACd72c1tNLEGFQrOIUcuYD4WcohpmnPZuEC74vY3UKPx6Ftn4Au008JOnfLby");
-const FRONTEND_URL = "https://kaleidoscopic-granita-513e6f.netlify.app";
+const FRONTEND_URL = "http://localhost:5173";
 const STRIPE_ENDPOINT_SECRET = "whsec_e2edf41e82471a9d4b323fa037ec9c7a1da0637fb306f358503a643e36c20cba";
 console.log("api", STRIPE);
 const createCheckoutSession = async (req, res) => {
